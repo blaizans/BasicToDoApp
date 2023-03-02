@@ -12,7 +12,7 @@ public class FileContext
     {
         get
         {
-            LazyLoadData();
+            LoadData();
             return dataContainer!.Todos;
         }
     }
@@ -21,28 +21,34 @@ public class FileContext
     {
         get
         {
-            LazyLoadData();
-            return dataContainer!.Users;
-        }
-    }
-
-    private void LazyLoadData()
-    {
-        if (dataContainer == null)
-        {
             LoadData();
+            return dataContainer!.Users;
         }
     }
 
     private void LoadData()
     {
+        if (dataContainer != null) return;
+        
+        if (!File.Exists(filePath))
+        {
+            dataContainer = new ()
+            {
+                Todos = new List<Todo>(),
+                Users = new List<User>()
+            };
+            return;
+        }
         string content = File.ReadAllText(filePath);
         dataContainer = JsonSerializer.Deserialize<DataContainer>(content);
     }
 
     public void SaveChanges()
     {
-        string serialized = JsonSerializer.Serialize(dataContainer);
+        string serialized = JsonSerializer.Serialize(dataContainer, new JsonSerializerOptions
+        {
+            WriteIndented = true
+        });
         File.WriteAllText(filePath, serialized);
         dataContainer = null;
     }
