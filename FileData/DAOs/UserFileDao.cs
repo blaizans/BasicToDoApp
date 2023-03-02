@@ -1,5 +1,6 @@
 using Application.DaoInterfaces;
-using Shared;
+using Models;
+
 
 namespace FileData.DAOs;
 
@@ -36,14 +37,5 @@ public class UserFileDao : IUserDao
         );
         return Task.FromResult(existing);
     }
-
-    public Task<User> Create(User user)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<User?> GetByUsername(string username)
-    {
-        throw new NotImplementedException();
-    }
+    
 }

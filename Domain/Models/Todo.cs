@@ -1,4 +1,4 @@
-﻿namespace Shared;
+﻿namespace Models;
 
 public class Todo
 {

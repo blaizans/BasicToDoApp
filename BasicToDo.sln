@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{4AA59C39-B904-4678-9091-D49CB901175C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{78D24658-9BA3-424F-B813-6475B6F0A5FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{D9038442-B449-425E-B6AC-1D19D388BAF5}"
@@ -16,10 +14,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4AA59C39-B904-4678-9091-D49CB901175C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4AA59C39-B904-4678-9091-D49CB901175C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4AA59C39-B904-4678-9091-D49CB901175C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4AA59C39-B904-4678-9091-D49CB901175C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{78D24658-9BA3-424F-B813-6475B6F0A5FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78D24658-9BA3-424F-B813-6475B6F0A5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78D24658-9BA3-424F-B813-6475B6F0A5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU

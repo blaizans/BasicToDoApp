@@ -1,11 +1,11 @@
 using System.Text.Json;
-using Shared;
+using Models;
 
 namespace FileData;
 
 public class FileContext
 {
-    private const string filePath = "data.jsno";
+    private const string filePath = "data.json";
     private DataContainer? dataContainer;
 
     public ICollection<Todo> Todos
