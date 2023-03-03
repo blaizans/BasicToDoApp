@@ -1,4 +1,4 @@
-  {
+{
   "Users": [
     {
       "Id": 1,
@@ -14,15 +14,6 @@
     }
   ],
   "Todos": [
-    {
-      "Id": 1,
-      "Owner": {
-        "Id": 1,
-        "UserName": "Marija"
-      },
-      "Title": "Wash dishes",
-      "IsCompleted": false
-    },
     {
       "Id": 2,
       "Owner": {
@@ -67,6 +58,15 @@
       },
       "Title": "Wash dishes",
       "IsCompleted": false
+    },
+    {
+      "Id": 1,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Marija"
+      },
+      "Title": "Wash dishes",
+      "IsCompleted": true
     }
   ]
 }
