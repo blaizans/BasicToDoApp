@@ -58,15 +58,6 @@
       },
       "Title": "Wash dishes",
       "IsCompleted": false
-    },
-    {
-      "Id": 1,
-      "Owner": {
-        "Id": 1,
-        "UserName": "Marija"
-      },
-      "Title": "Wash dishes",
-      "IsCompleted": true
     }
   ]
 }
