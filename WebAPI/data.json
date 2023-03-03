@@ -9,7 +9,23 @@
       "Id": 2,
       "UserName": "string",
       "Todos": null
+    },
+    {
+      "Id": 3,
+      "UserName": "MarijaP",
+      "Todos": null
     }
   ],
-  "Todos": []
+  "Todos": [
+    {
+      "Id": 1,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Marija",
+        "Todos": null
+      },
+      "Title": "Wash dishes",
+      "IsCompleted": false
+    }
+  ]
 }

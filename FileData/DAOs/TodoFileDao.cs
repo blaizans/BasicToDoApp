@@ -1,8 +1,9 @@
+using Application.DaoInterfaces;
 using Models;
 
 namespace FileData.DAOs;
 
-public class TodoFileDao
+public class TodoFileDao : ITodoDao
 {
     private readonly FileContext context;
 
