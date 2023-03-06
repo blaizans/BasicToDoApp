@@ -13,7 +13,7 @@ public class TodoController : ControllerBase
 
     public TodoController(ITodoLogic todoLogic)
     {
-        this.todoLogic = todoLogic;
+        this.todoLogic = todoLogic
     }
 
     [HttpPost]
