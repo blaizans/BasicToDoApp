@@ -6,3 +6,4 @@
 - As a User I can view all or filtered Todos
 - As a User I can mark Todo as completed
 - As a User I can delete a Todo
+- As a User I can get Todo by Id
