@@ -1,0 +1,31 @@
+@page "/CreateUser"
+@using Domain.DTOs
+@using HttpClients.ClientInterfaces
+
+<h3>CreateUser</h3>
+
+@code {
+    private string username = "";
+    private string resultMsg = "";
+    private string color = "";
+
+    private async Task Create(IUserService userService)
+    {
+        resultMsg = "";
+
+        try
+        {
+            await userService.Create(new UserCreationDto(username));
+            username = "";
+            resultMsg = "User succesfully created";
+            color = "green";
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            resultMsg = e.Message;
+            color = "red";
+        }
+    }
+}
