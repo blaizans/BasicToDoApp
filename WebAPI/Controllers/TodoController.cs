@@ -1,3 +1,4 @@
+    using System.Net;
     using Application.LogicInterfaces;
 using Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -48,7 +49,7 @@ public class TodoController : ControllerBase
             return StatusCode(500, e);
         }
     }
-
+    
     [HttpPatch]
     public async Task<ActionResult> UpdateAsync([FromBody] TodoUpdateDto dto)
     {
