@@ -3,8 +3,10 @@
 @using HttpClients.ClientInterfaces
 @inject IUserService userService;
 
-<h3>Create User</h3>
+
 <div class="card">
+    
+    <h3>Create User</h3>
     <div class="form-group field">
         <label>User name:</label>
         <input type="text" @bind="username" @bind:event="oninput"/>
