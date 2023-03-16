@@ -11,5 +11,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 
 builder.Services.AddScoped<IUserService, UserHttpClient>();
+builder.Services.AddScoped<ITodoService, TodoHttpClient>();
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5224") });
 await builder.Build().RunAsync();
