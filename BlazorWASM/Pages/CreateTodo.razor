@@ -13,7 +13,7 @@
     }
     else if (!users.Any())
     {
-        <label>No users, you cannot create a Todo without assignee.</label>
+        <label>No users, you cannot create a Todo</label>
     }
     else
     {
@@ -41,6 +41,7 @@
         </div>
     }
 </div>
+
 @code {
     private IEnumerable<User>? users;
     private int? selectedUserId;
@@ -67,7 +68,7 @@
         msg = "";
         if (selectedUserId == null)
         {
-            msg = "You must select assignee!";
+            msg = "You must select an assignee!";
             return;
         }
         if (string.IsNullOrEmpty(todoTitle))
