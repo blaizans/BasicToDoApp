@@ -1,5 +1,4 @@
-    using System.Net;
-    using Application.LogicInterfaces;
+using Application.LogicInterfaces;
 using Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -18,8 +17,7 @@ public class TodoController : ControllerBase
     }
 
     [HttpPost]
-
-    public async Task<ActionResult<Todo>> CreateAsync([FromBody] TodoCreationDto dto)
+    public async Task<ActionResult<Todo>> CreateAsync([FromBody]TodoCreationDto dto)
     {
         try
         {
@@ -46,10 +44,10 @@ public class TodoController : ControllerBase
         catch (Exception e)
         {
             Console.WriteLine(e);
-            return StatusCode(500, e);
+            return StatusCode(500, e.Message);
         }
     }
-    
+
     [HttpPatch]
     public async Task<ActionResult> UpdateAsync([FromBody] TodoUpdateDto dto)
     {
@@ -64,7 +62,7 @@ public class TodoController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
+
     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteAsync([FromRoute] int id)
     {
@@ -79,4 +77,5 @@ public class TodoController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
 }
