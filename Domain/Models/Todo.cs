@@ -13,4 +13,6 @@ public class Todo
         Title = title;
         
     }
+    
+    private Todo(){}
 }
