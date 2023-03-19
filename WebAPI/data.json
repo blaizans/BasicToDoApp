@@ -1,0 +1,80 @@
+{
+  "Users": [
+    {
+      "Id": 1,
+      "UserName": "Marija"
+    },
+    {
+      "Id": 2,
+      "UserName": "string"
+    },
+    {
+      "Id": 3,
+      "UserName": "MarijaP"
+    },
+    {
+      "Id": 4,
+      "UserName": "GHandsome"
+    },
+    {
+      "Id": 5,
+      "UserName": "Bruno"
+    }
+  ],
+  "Todos": [
+    {
+      "Id": 2,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Marija"
+      },
+      "Title": "Wash clothes",
+      "IsCompleted": false
+    },
+    {
+      "Id": 3,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Marija"
+      },
+      "Title": "Wash dishes",
+      "IsCompleted": false
+    },
+    {
+      "Id": 4,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Marija"
+      },
+      "Title": "Wash dishes",
+      "IsCompleted": false
+    },
+    {
+      "Id": 5,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Marija"
+      },
+      "Title": "Wash dishes",
+      "IsCompleted": false
+    },
+    {
+      "Id": 6,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Marija"
+      },
+      "Title": "Wash dishes",
+      "IsCompleted": false
+    },
+    {
+      "Id": 7,
+      "Owner": {
+        "Id": 1,
+        "UserName": "Marija"
+      },
+      "Title": "sup",
+      "IsCompleted": false
+    }
+  ]
+}
