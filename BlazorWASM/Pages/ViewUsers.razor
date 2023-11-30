@@ -1,9 +1,9 @@
-@page "/ViewUsers"
-@using Models
+﻿@page "/ViewUsers"
+@using Domain.Models
 @using HttpClients.ClientInterfaces
-@inject IUserService userService;
+@inject IUserService userService
 
-<h3 style="text-align: center">Find User U Need</h3>
+<h3 style="text-align: center">Overview of all users</h3>
 
 @if (!string.IsNullOrEmpty(msg))
 {
@@ -14,7 +14,7 @@
 
 @if (users == null)
 {
-    <span>Loading...</span>
+    <span>Loading..</span>
 }
 else if (!users.Any())
 {
@@ -22,7 +22,7 @@ else if (!users.Any())
 }
 else
 {
-    <div class="user-container">
+    <div class="users-container">
         @foreach (User user in users)
         {
             <div class="user-card">
@@ -50,3 +50,4 @@ else
         }
     }
 }
+

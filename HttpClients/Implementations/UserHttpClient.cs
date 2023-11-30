@@ -1,10 +1,8 @@
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 using System.Text.Json;
 using Domain.DTOs;
+using Domain.Models;
 using HttpClients.ClientInterfaces;
-using Models;
-
-// ReSharper disable All
 
 namespace HttpClients.Implementations;
 
@@ -32,7 +30,7 @@ public class UserHttpClient : IUserService
         })!;
         return user;
     }
-    
+
     public async Task<IEnumerable<User>> GetUsers(string? usernameContains = null)
     {
         string uri = "/users";
@@ -47,7 +45,6 @@ public class UserHttpClient : IUserService
             throw new Exception(result);
         }
 
-        Console.WriteLine(result);
         IEnumerable<User> users = JsonSerializer.Deserialize<IEnumerable<User>>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true

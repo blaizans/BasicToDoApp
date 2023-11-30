@@ -1,11 +1,11 @@
-using Application.DaoInterfaces;
+﻿using Application.DaoInterfaces;
 using Application.LogicInterfaces;
 using Domain.DTOs;
-using Models;
+using Domain.Models;
 
 namespace Application.Logic;
 
-public class TodoLogic:ITodoLogic
+public class TodoLogic : ITodoLogic
 {
     private readonly ITodoDao todoDao;
     private readonly IUserDao userDao;
@@ -24,8 +24,10 @@ public class TodoLogic:ITodoLogic
             throw new Exception($"User with id {dto.OwnerId} was not found.");
         }
 
-        ValidateTodo(dto);
         Todo todo = new Todo(user, dto.Title);
+
+        ValidateTodo(todo);
+
         Todo created = await todoDao.CreateAsync(todo);
         return created;
     }
@@ -34,7 +36,7 @@ public class TodoLogic:ITodoLogic
     {
         return todoDao.GetAsync(searchParameters);
     }
-    
+
     public async Task UpdateAsync(TodoUpdateDto dto)
     {
         Todo? existing = await todoDao.GetByIdAsync(dto.Id);
@@ -62,7 +64,7 @@ public class TodoLogic:ITodoLogic
         User userToUse = user ?? existing.Owner;
         string titleToUse = dto.Title ?? existing.Title;
         bool completedToUse = dto.IsCompleted ?? existing.IsCompleted;
-    
+
         Todo updated = new (userToUse, titleToUse)
         {
             IsCompleted = completedToUse,
@@ -74,16 +76,6 @@ public class TodoLogic:ITodoLogic
         await todoDao.UpdateAsync(updated);
     }
 
-    private void ValidateTodo(Todo dto)
-    {
-        if (string.IsNullOrEmpty(dto.Title)) throw new Exception("Title cannot be empty.");
-    }
-    private void ValidateTodo(TodoCreationDto dto)
-    {
-        if (string.IsNullOrEmpty(dto.Title)) throw new Exception("Title cannot be empty.");
-        
-    }
-    
     public async Task DeleteAsync(int id)
     {
         Todo? todo = await todoDao.GetByIdAsync(id);
@@ -98,5 +90,22 @@ public class TodoLogic:ITodoLogic
         }
 
         await todoDao.DeleteAsync(id);
+    }
+
+    public async Task<TodoBasicDto> GetByIdAsync(int id)
+    {
+        Todo? todo = await todoDao.GetByIdAsync(id);
+        if (todo == null)
+        {
+            throw new Exception($"Todo with id {id} not found");
+        }
+
+        return new TodoBasicDto(todo.Id, todo.Owner.UserName, todo.Title, todo.IsCompleted);
+    }
+
+    private void ValidateTodo(Todo dto)
+    {
+        if (string.IsNullOrEmpty(dto.Title)) throw new Exception("Title cannot be empty.");
+        // other validation stuff
     }
 }

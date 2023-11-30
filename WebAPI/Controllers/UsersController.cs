@@ -1,8 +1,7 @@
-using Application.LogicInterfaces;
+﻿using Application.LogicInterfaces;
 using Domain.DTOs;
-using Models;
+using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-
 
 namespace WebAPI.Controllers;
 

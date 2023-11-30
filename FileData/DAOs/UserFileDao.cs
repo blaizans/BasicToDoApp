@@ -1,7 +1,6 @@
-using Application.DaoInterfaces;
+﻿using Application.DaoInterfaces;
 using Domain.DTOs;
-using Models;
-
+using Domain.Models;
 
 namespace FileData.DAOs;
 
@@ -24,17 +23,17 @@ public class UserFileDao : IUserDao
         }
 
         user.Id = userId;
-        
+
         context.Users.Add(user);
         context.SaveChanges();
 
         return Task.FromResult(user);
     }
 
-    public Task<User?> GetByUsernameAsync(string username)
+    public Task<User?> GetByUsernameAsync(string userName)
     {
-        User? existing = context.Users.FirstOrDefault(
-            u => u.UserName.Equals(username, StringComparison.OrdinalIgnoreCase)
+        User? existing = context.Users.FirstOrDefault(u =>
+            u.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase)
         );
         return Task.FromResult(existing);
     }
@@ -42,16 +41,14 @@ public class UserFileDao : IUserDao
     public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto searchParameters)
     {
         IEnumerable<User> users = context.Users.AsEnumerable();
-
-        if (searchParameters.UsernameContains !=null)
+        if (searchParameters.UsernameContains != null)
         {
-            users = context.Users.Where(u =>
-                u.UserName.Contains(searchParameters.UsernameContains, StringComparison.OrdinalIgnoreCase));
+            users = context.Users.Where(u => u.UserName.Contains(searchParameters.UsernameContains, StringComparison.OrdinalIgnoreCase));
         }
 
         return Task.FromResult(users);
     }
-    
+
     public Task<User?> GetByIdAsync(int id)
     {
         User? existing = context.Users.FirstOrDefault(u =>
@@ -59,5 +56,4 @@ public class UserFileDao : IUserDao
         );
         return Task.FromResult(existing);
     }
-
 }
